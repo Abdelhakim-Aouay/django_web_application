@@ -1,0 +1,12 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+<h2 class="text-center alert alert-danger"> Mes groupes préférés sont : </h2>
+
+{% for field in data %}
+ 
+   <ul> 
+    <li>{{field.name|upper}} </li>
+    </ul>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'listings/base.html' %}
+
+{% block dynamique %}
+
+<h2> l'identfiant est : {{id}} </h2>
+{% for i in band %}
+{{ i.id }}<br>
+{{i.name}}<br>
+{{i.genre}}<br>
+{{i.active}}
+
+{% endfor %}
+
+{% endblock dynamique %}

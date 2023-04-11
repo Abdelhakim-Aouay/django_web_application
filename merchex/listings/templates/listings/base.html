@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href=" {% static 'listings/css/bootstrap.css' %}">
+        <h1 class="text-center">Hello Django !</h1>
+    </head>
+    <body>
+
+        <div class="container mt-5">
+          <!--  <h2 class="text-center alert alert-danger"> </h2> -->
+            {% block content %}
+            {% endblock content %}
+
+            {% block dynamique %}
+            {% endblock dynamique %}
+
+            
+        </div>
+
+        
+        <script src="{% static 'listings/js/bootstrap.js'%}" async defer></script>
+        <script src="{% static 'listings/js/jquery.js'%}" async defer></script>
+        <script src="{% static 'listings/js/popper.js'%}" async defer></script>
+    </body>
+</html>
