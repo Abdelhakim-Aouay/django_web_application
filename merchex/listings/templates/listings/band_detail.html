@@ -1,14 +1,19 @@
 {% extends 'listings/base.html' %}
 
-{% block dynamique %}
+{% block content %}
 
-<h2> l'identfiant est : {{id}} </h2>
-{% for i in band %}
-{{ i.id }}<br>
-{{i.name}}<br>
-{{i.genre}}<br>
-{{i.active}}
+<h2>{{ band.name }}</h2>
 
-{% endfor %}
+<ul>
+ <li>Genre : {{ band.genre }}</li>
+ <li>Année de formation : {{ band.year_formed }}</li>
+ <li>Actif : {{ band.active }}</li>
+ <li>{{ band.official_homepage }}</li>
+</ul>
 
-{% endblock dynamique %}
+<p>{{ band.biography }}</p>
+
+<li><a href="{% url 'band-list' %}" > retour </a></li>
+{% endblock content %}
+
+

@@ -1,0 +1,8 @@
+{% extends 'listings/base.html' %}
+{% block dynamique %}
+
+{% for i in bands %}
+     <li><a href="{% url 'band-detail' i.id %}" > {{ i.name }}</a></li>
+{% endfor %}
+
+{% endblock dynamique %}
