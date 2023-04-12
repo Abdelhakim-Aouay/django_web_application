@@ -68,6 +68,34 @@ def list_create(request):
         form=ListingForm()
     return render(request, 'listings/list_create.html', {'form': form})
 
+# listings/views.py
+
+        
+def band_update(request, id):
+    band = Band.objects.get(id=id)
+    if request.method=='POST':
+        form = BandForm1(request.POST, instance=band)  # on pré-remplir le formulaire avec un groupe existant
+        if form.is_valid():
+            form.save()
+            return redirect('band-detail', band.id)
+    else:
+         form = BandForm1(instance=band)
+        
+    return render(request,'listings/band_update.html',{'form': form})
+
+def band_delete(request,id):
+    band=Band.objects.get(id=id)
+    if request.method =='POST':
+        band.delete()
+        return redirect('band-list')
+    else:
+        print("method is GET")
+    return render(request, 'listings/band_delete.html' , {'data': band})
+
+
+
+
+
 def list_detail(request):
     all1=Listing.objects.all()
     return render(request, 'listings/list_detail.html', {'data': all1})
@@ -75,4 +103,22 @@ def list_detail(request):
 def list_list(request, id):
     all1=Listing.objects.get(id=id)
     return render(request, 'listings/list_list.html', {'data': all1})
+
+def list_update(request,id):
+    all1=Listing.objects.get(id=id)
+    if request.method=='POST':
+        if form.is_valid():
+            form.save()
+            return redirect('liste-list',all1.id)
+    else:
+        form=ListingForm(instance=all1)
+    return render(request, 'listings/list_update.html', {'form':form})
+        
+ 
+def list_delete(request, id):
+    all1=Listing.objects.get(id=id)
+    if request.method=='POST':
+        all1.delete()
+        return redirect('liste-detail')
+    return render(request, 'listings/list_delete.html', {'form':all1})
     
