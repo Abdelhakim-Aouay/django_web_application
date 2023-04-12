@@ -7,5 +7,8 @@ urlpatterns = [
     path('<int:id>/', views.band_detail, name="band-detail"), # ajouter ce motif sous notre autre motif de groupes
     path('en', views.enregistrement, name="en"),
     path('add/', views.band_create, name='band-create'),
+    path('addlist/', views.list_create, name='list-create'),
+    path("listdetail/",views.list_detail, name="liste-detail"),
+    path("listdetail/<int:id>/",views.list_list, name="liste-list")
     
 ]

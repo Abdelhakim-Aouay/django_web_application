@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from . models import Band
-from .form import ContactUsForm, BandForm, BandForm1
+from . models import Band, Listing
+from .form import ContactUsForm, BandForm1, ListingForm
 from django.core.mail import send_mail
 
 
@@ -44,5 +44,35 @@ def enregistrement(request):
     return render(request, 'listings/enregistrement.html', {'my':myform})
 
 def band_create(request):
-    form = BandForm1()
+    print(request.method)
+    if request.method == 'POST':
+        form = BandForm1(request.POST)
+        if form.is_valid():
+            band=form.save()
+            form = BandForm1()
+            print("success")
+            #return redirect('band-detail', band.id)
+    else:
+        form = BandForm1()
     return render(request, 'listings/band_create.html',  {'form': form})
+
+def list_create(request):
+    
+    if request.method=='POST':
+        form=ListingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            
+    else:
+        
+        form=ListingForm()
+    return render(request, 'listings/list_create.html', {'form': form})
+
+def list_detail(request):
+    all1=Listing.objects.all()
+    return render(request, 'listings/list_detail.html', {'data': all1})
+
+def list_list(request, id):
+    all1=Listing.objects.get(id=id)
+    return render(request, 'listings/list_list.html', {'data': all1})
+    

@@ -1,0 +1,15 @@
+{% extends 'listings/base.html' %}
+{% block content%}
+<ul>
+
+ <li>{{data.title}}</li>
+ <li>{{data.year}}</li>
+ <li>{{data.desccription}}</li>
+ <li>{{data.sold}}</li>
+ <li>{{data.type}}</li>
+ <li>{{data.band}}</li>
+ <li>{{data.band_id}}</li>
+
+</ul>
+<a href="{% url 'liste-detail' %}">retour</a>
+{% endblock content %}

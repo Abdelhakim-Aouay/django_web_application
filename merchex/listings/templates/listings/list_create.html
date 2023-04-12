@@ -1,0 +1,10 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+
+<form method="Post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input  class="btn btn-info" type="submit", class ="form-control mt-4", value="soumettre", class="btn btn-outline-primary">
+
+</form>
+{% endblock content %}

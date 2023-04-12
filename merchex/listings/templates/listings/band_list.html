@@ -3,6 +3,10 @@
 
 {% for i in bands %}
      <li><a href="{% url 'band-detail' i.id %}" > {{ i.name }}</a></li>
+     
 {% endfor %}
+<h1>Groupes</h1>
+
+  <a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
 
 {% endblock dynamique %}
