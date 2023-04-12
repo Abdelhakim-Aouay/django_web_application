@@ -1,0 +1,17 @@
+{% extends 'listings/base.html'%}
+{% block en %}
+
+
+<form method="POST" class="form-group"> 
+    {% csrf_token %}
+    
+    {{ my.as_p }}
+
+
+<br>
+<input  class="btn btn-info" type="submit", class ="form-control mt-4", value="soumettre", class="btn btn-outline-primary">
+</form>        
+    <div class=text-center>
+
+    </div>
+    {% endblock en %}
